@@ -1,10 +1,11 @@
 package stepDefinitions;
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
-
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -46,7 +47,9 @@ public class EnquiryFormVerify {
 	
 	@Then("System should display a confirmation message to the user")
 	public void system_should_display_a_confirmation_message_to_the_user() {
-	   testContextSetup.extractedName = enquiryForm.verifySubmitMsg();
+		testContextSetup.testBase.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	   enquiryForm.verifySubmitMsg();
+	   
 	   Assert.assertEquals(testContextSetup.extractedName, testContextSetup.name);
 	   
 	}

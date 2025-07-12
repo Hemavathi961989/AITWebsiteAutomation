@@ -53,19 +53,4 @@ public class BookARoomFeatureVerify {
 	    bookRoomPage.bookingConfirmMsg();
 	}
 	
-	@When("they input valid user details for all the fields and leave the field Email as blank")
-	public void they_input_valid_user_details_for_all_the_fields_and_leave_the_field_email_as_blank() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-	@Then("System should display an error message, stating user to input the required detail.")
-	public void system_should_display_an_error_message_stating_user_to_input_the_required_detail() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}
-
-
-
-
 }

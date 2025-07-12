@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\Rajiv\AppData\Local\Temp\testng-eclipse-61592234\testng-customsuite.xml</span>
+                    <span>C:\Users\Rajiv\AppData\Local\Temp\testng-eclipse--1432103376\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,7 +103,17 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Submit an enquiry form with valid user inputs and verify the state of the form after submission&quot;, &quot;...)">runScenario("Submit an enquiry form with valid user inputs and verify the state of the form after submission", "...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Admin login with invalid credentials&quot;, &quot;Admin Login functionality&quot;)">runScenario("Admin login with invalid credentials", "Admin Login functionality")</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="cucumberOptions.TestNGRunner" class="method navigator-link" hash-for-method="runScenario(&quot;Submit an enquiry form with missing user inputs&quot;, &quot;Submit an enquiry form&quot;)">runScenario("Submit an enquiry form with missing user inputs", "Submit an enquiry form")</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -126,10 +136,30 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="runScenario(&quot;Submit an enquiry form with valid user inputs and verify the state of the form after submission&quot;, &quot;...)">
+                  </a> <!-- runScenario("Submit an enquiry form with valid user inputs and verify the state of the form after submission", "...) -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Submit an enquiry form with valid user inputs and verify the state of the form after submission","Submit an enquiry form")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="runScenario(&quot;Admin login with invalid credentials&quot;, &quot;Admin Login functionality&quot;)">
                   </a> <!-- runScenario("Admin login with invalid credentials", "Admin Login functionality") -->
                   <span class="method-name">runScenario</span>
                   <span class="parameters">("Admin login with invalid credentials","Admin Login functionality")</span>
+                  <em>
+(Runs Cucumber Scenarios)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runScenario(&quot;Submit an enquiry form with missing user inputs&quot;, &quot;Submit an enquiry form&quot;)">
+                  </a> <!-- runScenario("Submit an enquiry form with missing user inputs", "Submit an enquiry form") -->
+                  <span class="method-name">runScenario</span>
+                  <span class="parameters">("Submit an enquiry form with missing user inputs","Submit an enquiry form")</span>
                   <em>
 (Runs Cucumber Scenarios)                  </em>
                 </div> <!-- method-content -->
@@ -139,7 +169,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Rajiv\AppData\Local\Temp\testng-eclipse-61592234\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\Rajiv\AppData\Local\Temp\testng-eclipse--1432103376\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -196,16 +226,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'runScenario')
 data.setCell(0, 2, 'cucumberOptions.TestNGRunner')
-data.setCell(0, 3, 6237);
+data.setCell(0, 3, 10480);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'runScenario')
+data.setCell(1, 2, 'cucumberOptions.TestNGRunner')
+data.setCell(1, 3, 9256);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'runScenario')
+data.setCell(2, 2, 'cucumberOptions.TestNGRunner')
+data.setCell(2, 3, 8846);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 28 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -233,16 +271,24 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">cucumberOptions.TestNGRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setUpClass(org.testng.TestRunner@174e1b69)</span>
+                <span class="method-name">setUpClass(org.testng.TestRunner@71cb3139)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
+                <span class="method-name">runScenario("Submit an enquiry form with valid user inputs and verify the state of the form after submission", "...)</span>
+                <span class="method-start">890 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">runScenario("Admin login with invalid credentials", "Admin Login functionality")</span>
-                <span class="method-start">1137 ms</span>
+                <span class="method-start">890 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">runScenario("Submit an enquiry form with missing user inputs", "Submit an enquiry form")</span>
+                <span class="method-start">890 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">tearDownClass</span>
-                <span class="method-start">7381 ms</span>
+                <span class="method-start">11376 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

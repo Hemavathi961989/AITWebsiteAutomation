@@ -19,11 +19,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BookRoomPage {
 
 	public WebDriver driver;
+	WebDriverWait wait;
 	public String targetMonthYear = "July 2025";
 	public String targetDay = "15";
 
 	public BookRoomPage(WebDriver driver) {
 		this.driver = driver;
+		this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	}
 
 	By bookingLink = By.linkText("Booking");
@@ -39,7 +41,7 @@ public class BookRoomPage {
 
 	By checkAvailabilityButton = By.xpath("//button[text() = 'Check Availability']");
 	By roomBookNow = By.xpath("//div[@class='container']/div[2]/div[1]//a[contains(text(), 'Book')]");
-	
+	//By roomBookNow = By.cssSelector(".room-card .btn.btn-primary");
 	By pageHeader = By.xpath("//div/h1");
 	By reserveNow = By.xpath("//button[contains(text(),'Reserve Now')]");
 	
@@ -69,7 +71,6 @@ public class BookRoomPage {
 	public void inputCheckinDate(String checkintargetmonthyear, String checkintargetday) {
 		driver.findElement(checkInField).click();
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".react-datepicker__month-container")));
 
 		int maxAttempts = 12;
@@ -123,7 +124,6 @@ public class BookRoomPage {
 	public void inputCheckoutDate(String checkouttargetmonthyear, String checkouttargetday) {
 		driver.findElement(checkOutField).click();
 
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".react-datepicker__month-container")));
 
 		int maxAttempts = 12;
@@ -185,39 +185,51 @@ public class BookRoomPage {
 	{
 		scrollToBookNow();
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); 
 		wait.until(ExpectedConditions.elementToBeClickable(pageHeader));
 	}
 	
 	public void scrollToBookNow() throws InterruptedException
 	{
-		int attempts =0;
-		while (attempts<3)
+		
+		int attempts = 0;
+		while(attempts<3)
 		{
 		try {
 			
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		  WebElement bookNow = driver.findElement(roomBookNow);
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", bookNow);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='container']/div[2]/div[1]//a[contains(text(), 'Book')]")));
+			
+			
+			 String script = "let button = document.querySelector('//div[@class='container']/div[2]/div[1]//a[contains(text(), 'Book')]');" +
+		                "if (button) {" +
+		                    "button.scrollIntoView({block: 'center'});" +
+		                   "setTimeout(() => button.click();"+
+		                    "return true;"+
+		                "}" +
+		                   " return false;" 
+		                ;
+
+		            Boolean success = (Boolean) ((JavascriptExecutor) driver).executeScript(script);
+		            if (Boolean.TRUE.equals(success)) {
+		                System.out.println("Successfully clicked 'Book now' via pure JS.");
+		                return;
+		            } else {
+		                System.out.println("JS could not find the button.");
+		                attempts++;
+		            }
+
 		
 		
-		bookNow = wait.until(ExpectedConditions.elementToBeClickable(bookNow));
-		
-		
-		Thread.sleep(500);
-		
-		Actions actions = new Actions(driver);
-		actions.moveToElement(bookNow).click().perform(); 
-		break;
-           } catch(StaleElementReferenceException e) 
-		{
-        	   WebElement bookNow = driver.findElement(roomBookNow);
-        	   bookNow.click();
-        	   System.out.println("Attempt " + (attempts + 1) + ": Caught stale element, retrying...");
-               Thread.sleep(500);
-      }
+		} catch (Exception e) {
+            System.out.println("Attempt \" + (attempts + 1) + \" failed: \" + e.getMessage()");
+            
+        }
 		attempts++;
-	  }
+		try {
+			Thread.sleep(500);
+		}catch (InterruptedException ignored) {}
+		}
+	
+		throw new RuntimeException("Failed to click 'Book Now' after multiple attempts.");
 	}
 	
 	public void bookSingleRoom() throws InterruptedException
